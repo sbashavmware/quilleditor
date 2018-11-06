@@ -15,9 +15,15 @@
 
   <div class="content-container">
       <div class="content-area">
-        <quill-editor></quill-editor>
-      </div>
+        <div class="content-quill-editor">
+            <quill-editor [placeholder]="'Digite aqui todo o conteudo do post!'"
+            [modules]= "options"
+            (onEditorCreated)="setFocus($event)"
+           >
+</quill-editor>
 
+        </div>
+      </div>
   </div>
 </div>
 

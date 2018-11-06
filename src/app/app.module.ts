@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
-    QuillModule
+    QuillModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

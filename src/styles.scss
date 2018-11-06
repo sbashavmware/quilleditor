@@ -2,3 +2,14 @@
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
+
+
+.ql-toolbar {
+  position: absolute;
+  bottom:0;
+  z-index: 1000;
+  width:100%;
+  border: 0 !important;
+}
+
+
