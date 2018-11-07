@@ -1,31 +1,35 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="main-container">
 
-  <header class="header header-6">
-    <div class="branding">
-      <a href="#" >
-        <clr-icon shape="vm-bug"></clr-icon>
-        <span class="title">
-            {{headerVal}}
-        </span>
-      </a>
-    </div>
-  </header>
-
-
-  <div class="content-container">
-      <div class="content-area">
-        <div class="content-quill-editor">
-            <quill-editor [placeholder]="'Digite aqui todo o conteudo do post!'"
-            [modules]= "options"
-            (onEditorCreated)="setFocus($event)"
-           >
-</quill-editor>
-
-        </div>
+    <header class="header header-6">
+      <div class="branding">
+        <a href="#" >
+          <clr-icon shape="vm-bug"></clr-icon>
+          <span class="title">
+              {{headerVal}}
+          </span>
+        </a>
       </div>
+    </header>
+
+
+    <div class="content-container">
+        <div class="content-area">
+          <div class="editBtns">
+            <button class="btn btn-primary" *ngIf="edited" (click)="showEditorToolBar()" >Edit</button>
+            <button class="btn btn-primary" *ngIf="!edited" (click)="hideEditorToolBar()" >Update</button>
+          </div>
+          <div class="content-quill-editor">
+              <quill-editor [placeholder]="'Type Content Here'"
+              [modules]= "options" [readOnly]="isReadOnly"
+              (onEditorCreated)="editorInstance($event)"
+             >
+  </quill-editor>
+
+          </div>
+        </div>
+    </div>
   </div>
-</div>
 
 
 

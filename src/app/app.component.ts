@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 import * as Quill from 'quill';
 
@@ -13,6 +13,9 @@ console.log(Quill)
 })
 export class AppComponent {
   title = 'quill-editor';
+  quillEditInst =  null;
+  edited = true;
+  isReadOnly =  true;
   headerVal = 'Rich Text editor built with Quill in Angular 7 using Clarity';
     options = {
     toolbar: [
@@ -41,7 +44,25 @@ export class AppComponent {
     ]
   };
 
-   setFocus = function(event){
-     console.log(event);
-   };
+  constructor(private elem: ElementRef){
+
+  }
+
+  editorInstance(quillInstance) {
+    this.quillEditInst =  quillInstance;
+    this.quillEditInst.theme.modules.toolbar.container.hidden = true;
+    this.edited = true;
+  }
+
+  showEditorToolBar = function(){
+  this.quillEditInst.theme.modules.toolbar.container.hidden = false;
+  this.edited = false;
+  this.isReadOnly =  false;
+  }
+
+  hideEditorToolBar = function(){
+  this.quillEditInst.theme.modules.toolbar.container.hidden = true;
+  this.edited = true;
+  this.isReadOnly = true;
+  }
 }
